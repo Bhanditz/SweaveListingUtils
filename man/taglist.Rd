@@ -7,8 +7,9 @@ Generating function and print method for S3 class \code{taglist}
 }
 \usage{
 taglist(..., list = NULL, defname = "V")
-\method{print}{taglist}(x, LineLength = 80, offset.start = 0,
-              withFinalLineBreak = TRUE, first.print = NULL, ...)
+\method{print}{taglist}(x, LineLength = getOption("width"), offset.start = 0,
+              withFinalLineBreak = TRUE, first.print = NULL,
+                          ErrorOrWarn = "warn", ...)
 }
 \arguments{
   \item{\dots}{arbitrary number of arguments in \code{taglist}, respectively,
@@ -20,16 +21,18 @@ taglist(..., list = NULL, defname = "V")
   \item{defname}{character; defaults to \code{"V"}; prefix of names given
   to a priori unnamed list elements; see below}
   \item{x}{an object of class \code{taglist}}
-  \item{LineLength}{numeric; deafults to 80; number of characters per line;
+  \item{LineLength}{numeric; deafults to getOption("width"); number of characters per line;
                     i.e.; \code{print}
   will make a linebreak \emph{between} two tags before this number is
   reached; it will not break a tag, however, and only issue an error if
-  this single tag is longer than \code{max(3*LineLength,80)}. }
+  this single tag is longer than \code{max(3*LineLength,getOption("width"))}. }
   \item{offset.start}{numeric; number of characters to indent in printing;}
   \item{withFinalLineBreak}{logical; shall there be a final line break;
                         defaults to \code{TRUE}.}
   \item{first.print}{character; something to be printed immediately before
   the first list item; defaulting to \code{NULL}.}
+  \item{ErrorOrWarn}{shall we issue a warning (if partially matched to \code{"warn"}
+                     or else an error}
   }
 
 \details{

@@ -7,17 +7,21 @@ helping tool for writing the corresponding TeX preamble commands
 to integrate Sweave and package listings}
 \usage{
 SweaveListingPreparations(
-   withOwnFileSection = FALSE,  % suggestion by Andrew Ellis!
-   withVerbatim = FALSE, % suggestion by Andrew Ellis!
+   withOwnFileSection = FALSE,
+   withVerbatim = FALSE,
    gin = TRUE,
    ae = TRUE,
-   LineLength = 80,
+   LineLength = getOption("width"),
    Rset = getSweaveListingOption("Rset"),
    Rdset = getSweaveListingOption("Rdset"),
-   Rcolor = getSweaveListingOption("Rcolor"),
-   Rbcolor = getSweaveListingOption("Rbcolor"), 
+   Rin = getSweaveListingOption("Rin"),
    Rout = getSweaveListingOption("Rout"),
-   Rcomment = getSweaveListingOption("Rcomment"),
+   Rcode = getSweaveListingOption("Rcode"),
+   Rcolor = getSweaveListingOption("Rcolor"),
+   RRecomdcolor = getSweaveListingOption("RRecomdcolor"),
+   Rbcolor = getSweaveListingOption("Rbcolor"),
+   Routcolor = getSweaveListingOption("Routcolor"),
+   Rcommentcolor = getSweaveListingOption("Rcommentcolor"),
    pkg = getSweaveListingOption("pkg"),
    pkv = getSweaveListingOption("pkv"),
    lib.loc = NULL)
@@ -45,14 +49,20 @@ SweaveListingPreparations(
   \item{LineLength}{numeric; defaults to 80}
   \item{Rset}{list or taglist; defaults to global option  \code{"Rset"}}
   \item{Rdset}{list or taglist; defaults to global option  \code{"Rdset"}}
-  \item{Rcolor}{numeric of length 3; defaults to global option  \code{"Rcolor"};
+  \item{Rin}{list or taglist; format string for \R input code; defaults to global option  \code{"Rin"}}
+  \item{Rout}{list or taglist; format string for \R output code; defaults to global option  \code{"Rout"}}
+  \item{Rcode}{list or taglist; format string for \R code; defaults to global option  \code{"Rcode"}}
+  \item{Rcolor}{numeric of length 3; [color for R-input-code] defaults to global option  \code{"Rcolor"};
                 rgb coordinates of the color in which to print R-code}
-  \item{Rbcolor}{numeric of length 3; defaults to global option  \code{"Rbcolor"};
+  \item{RRecomdcolor}{numeric of length 3; [color for R-symbols from recommended packages]
+                defaults to global option  \code{"RRecomdcolor"};
+                rgb coordinates of the color in which to print R-code}
+  \item{Rbcolor}{numeric of length 3; [color for R-symbols from intermediate packages] defaults to global option  \code{"Rbcolor"};
                  rgb coordinates of the color in which to print \R keywords
                  induced by intermediate packages.}
-  \item{Rout}{numeric of length 3; defaults to global option  \code{"Rout"};
+  \item{Routcolor}{numeric of length 3; [color for R-output-code] defaults to global option  \code{"Rout"};
                 rgb coordinates of the color in which to print R output}
-  \item{Rcomment}{numeric of length 3; defaults to global option \code{"Rcomment"};
+  \item{Rcommentcolor}{numeric of length 3; [color for R-comments] defaults to global option \code{"Rcomment"};
                 rgb coordinates of the color in which to print comments
                 in R-code}
   \item{pkg}{character; name of the packageto be described (e.g. in a vignette);

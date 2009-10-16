@@ -1,15 +1,26 @@
- \documentclass[9pt]{beamer}
+\documentclass[12pt]{article}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+\usepackage{xspace}
 \usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
 \usepackage{listings}
-%
-% this comment persuades Sweave not to insert \usepackage{Sweave}
-%
+\usepackage{algorithm2e}
+\usepackage[
+         colorlinks=true,
+         linkcolor=blue,
+         citecolor=blue,
+         urlcolor=blue]
+         {hyperref}
+\usepackage{lscape}
+%%\usepackage{Sweave}
 
-% choose language and char set
-\usepackage[ngerman]{babel}
-\usepackage[ansinew]{inputenc}
-%
+         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -18,11 +29,11 @@
 %------------------------------------------------------------------------------%
 %
 \RequirePackage{color}
-\definecolor{Rcolor}{rgb}{0, 0.5, 0.5}
+\definecolor{Rcolor}{rgb}{0, 0, 0.6}
 \definecolor{RRecomdcolor}{rgb}{0, 0.6, 0.4}
-\definecolor{Rbcolor}{rgb}{0, 0.6, 0.6}
-\definecolor{Routcolor}{rgb}{0.461, 0.039, 0.102}
-\definecolor{Rcommentcolor}{rgb}{0.101, 0.043, 0.432}
+\definecolor{Rbcolor}{rgb}{0, 0.6, 0}
+\definecolor{Routcolor}{rgb}{0.6, 0, 0}
+\definecolor{Rcommentcolor}{rgb}{0.5, 0.5, 0.5}
 %------------------------------------------------------------------------------%
 \lstdefinelanguage{Rd}[common]{TeX}%
 {moretexcs={acronym,alias,arguments,author,bold,cite,%
@@ -42,14 +53,23 @@
 }[keywords,comments]%%
 %------------------------------------------------------------------------------%
 \lstdefinestyle{Rstyle}{fancyvrb=true,escapechar=`,language=R,%
-                        basicstyle={\color{Rcolor}\small},%
-                        keywordstyle={\bf\color{Rcolor}},%
-                        commentstyle={\color{Rcommentcolor}\ttfamily\itshape},%
+                        basicstyle={\ttfamily\color{Rcolor}\small},%
+                        keywordstyle={\ttfamily\bf\color{darkgreen}},%
+                        commentstyle={\ttfamily\color{grey}\small},%
                         literate={<-}{{$\leftarrow$}}2{<<-}{{$\twoheadleftarrow$}}2{~}{{$\sim$}}1{<=}{{$\leq$}}2{>=}{{$\geq$}}2{^}{{$\scriptstyle\wedge$}}1,%
                         alsoother={$},%
                         alsoletter={.<-},%
                         otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,/},%
                         escapeinside={(*}{*)}}%
+\lstdefinestyle{RstyleO1}{fancyvrb=true,escapechar=`,language=R,%
+                          basicstyle={\ttfamily\color{Rcolor}\small},%
+                          keywordstyle={\ttfamily\bf\color{darkgreen}},%
+                          commentstyle={\ttfamily\color{grey}\small},%
+                          literate={<-}{{$\leftarrow$}}2{<<-}{{$\twoheadleftarrow$}}2{~}{{$\sim$}}1{<=}{{$\leq$}}2{>=}{{$\geq$}}2{^}{{$\scriptstyle\wedge$}}1,%
+                          alsoother={$},%
+                          alsoletter={.<-},%
+                          otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,/},%
+                          escapeinside={(*}{*)}}%
 \lstdefinestyle{Rdstyle}{fancyvrb=true,language=Rd,keywordstyle={\bf},%
                          basicstyle={\color{black}\footnotesize},%
                          commentstyle={\ttfamily\itshape},%
@@ -67,9 +87,18 @@
 %copying relevant parts of Sweave.sty
 %------------------------------------------------------------------------------%
 %
-\RequirePackage{ifthen}%
 \RequirePackage{graphicx,fancyvrb}%
 \IfFileExists{upquote.sty}{\RequirePackage{upquote}}{}%
+
+\RequirePackage{ifthen}%
+\newboolean{Sweave@gin}%
+\setboolean{Sweave@gin}{true}%
+\setkeys{Gin}{width=0.8\textwidth}%
+\newboolean{Sweave@ae}
+\setboolean{Sweave@ae}{true}%
+\RequirePackage[T1]{fontenc}
+\RequirePackage{ae}
+%
 \newenvironment{Schunk}{}{}
 
 \newcommand{\Sconcordance}[1]{% 
@@ -104,36 +133,32 @@ fancyvrb=false,basicstyle=\color{Routcolor}\small}%
 \def\pkg#1{{\tt "#1"}}
 \newcommand{\pkgversion}{{\tt 2.2}}
 %------------------------------------------------------------------------------%
+
+\lstdefinestyle{Rstyle2}{style=RstyleO1,%
 % --------------------------
 % Registration of package SweaveListingUtils
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[2]taglist,SweaveListingPreparations,SweaveListingOptions,SweaveListingoptions,SweaveListingMASK,%
+morekeywords={[2]taglist,SweaveListingPreparations,SweaveListingOptions,SweaveListingoptions,SweaveListingMASK,%
 setToBeDefinedPkgs,setBaseOrRecommended,readSourceFromRForge,readPkgVersion,lstsetRout,%
 lstsetRin,lstsetRd,lstsetRcode,lstsetR,lstsetLanguage,%
 lstset,lstinputSourceFromRForge,isBaseOrRecommended,getSweaveListingOption,copySourceFromRForge,%
 changeKeywordstyles%
 },%
-keywordstyle={[2]{\bf}}%
-}
+keywordstyle={[2]{\bf}},%
 %
-%
-
 % --------------------------
 % Registration of package startupmsg
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[3]suppressStartupMessages,startupType,startupPackage,StartupMessage,startupMessage,%
+morekeywords={[3]suppressStartupMessages,startupType,startupPackage,StartupMessage,startupMessage,%
 startupEndline,readVersionInformation,readURLInformation,pointertoNEWS,onlytypeStartupMessages,%
 NEWS,mystartupMessage,mySMHandler,infoShow,buildStartupMessage%
 },%
-keywordstyle={[3]{\bf}}%
-}
+keywordstyle={[3]{\bf}},%
 %
-%
-
 % --------------------------
 % Registration of package stats [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[4]xtabs,write.ftable,window<-,wilcox.test,weighted.residuals,%
+morekeywords={[4]xtabs,write.ftable,window<-,wilcox.test,weighted.residuals,%
 weighted.mean,vcov,varimax,variable.names,var.test,%
 update.formula,update.default,TukeyHSD.aov,TukeyHSD,tsSmooth,%
 tsp<-,tsdiag,ts.union,ts.plot,ts.intersect,%
@@ -200,15 +225,12 @@ anova.lmlist,anova.lm,anova.glmlist,anova.glm,AIC,%
 aggregate.ts,aggregate.default,aggregate.data.frame,addmargins,add.scope,%
 acf2AR,acf%
 },%
-keywordstyle={[4]{\bf\color{RRecomdcolor}}}%
-}
+keywordstyle={[4]{\bf\color{RRecomdcolor}}},%
 %
-%
-
 % --------------------------
 % Registration of package graphics [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[5]xspline,text.default,stripchart,strheight,split.screen,%
+morekeywords={[5]xspline,text.default,stripchart,strheight,split.screen,%
 spineplot,smoothScatter,points.default,plot.xy,plot.window,%
 plot.new,plot.design,plot.default,pie,panel.smooth,%
 pairs.default,lines.default,layout.show,image.default,hist.default,%
@@ -217,15 +239,12 @@ dotchart,contour.default,co.intervals,close.screen,clip,%
 cdplot,boxplot.matrix,boxplot.default,barplot.default,axTicks,%
 axis.POSIXct,axis.Date,Axis,assocplot%
 },%
-keywordstyle={[5]{\bf\color{RRecomdcolor}}}%
-}
+keywordstyle={[5]{\bf\color{RRecomdcolor}}},%
 %
-%
-
 % --------------------------
 % Registration of package grDevices [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[6]xyz.coords,xyTable,xy.coords,xfig,windowsFonts,%
+morekeywords={[6]xyz.coords,xyTable,xy.coords,xfig,windowsFonts,%
 windowsFont,windows.options,windows,win.print,win.metafile,%
 win.graph,Type1Font,trans3d,topo.colors,tiff,%
 terrain.colors,setPS,setEPS,savePlot,rgb2hsv,%
@@ -242,15 +261,12 @@ colorspaces,colorRampPalette,colorRamp,colorConverter,col2rgb,%
 cm.colors,CIDFont,check.options,bringToTop,boxplot.stats,%
 bmp,blues9,bitmap,as.graphicsAnnot%
 },%
-keywordstyle={[6]{\bf\color{RRecomdcolor}}}%
-}
+keywordstyle={[6]{\bf\color{RRecomdcolor}}},%
 %
-%
-
 % --------------------------
 % Registration of package utils [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[7]zip.unpack,zip.file.extract,wsbrowser,writeClipboard,write.table,%
+morekeywords={[7]zip.unpack,zip.file.extract,wsbrowser,writeClipboard,write.table,%
 write.socket,write.csv2,write.csv,winProgressBar,winMenuNames,%
 winMenuItems,winMenuDelItem,winMenuDel,winMenuAddItem,winMenuAdd,%
 winDialogString,winDialog,win.version,vignette,View,%
@@ -288,15 +304,12 @@ bug.report,browseVignettes,browseURL,browseEnv,available.packages,%
 assignInNamespace,as.roman,as.relistable,as.personList,as.person,%
 argsAnywhere,alarm%
 },%
-keywordstyle={[7]{\bf\color{RRecomdcolor}}}%
-}
+keywordstyle={[7]{\bf\color{RRecomdcolor}}},%
 %
-%
-
 % --------------------------
 % Registration of package datasets [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[8]WWWusage,WorldPhones,women,warpbreaks,volcano,%
+morekeywords={[8]WWWusage,WorldPhones,women,warpbreaks,volcano,%
 VADeaths,uspop,USPersonalExpenditure,USJudgeRatings,USArrests,%
 USAccDeaths,UKgas,UKDriverDeaths,UCBAdmissions,trees,%
 treering,ToothGrowth,Titanic,Theoph,swiss,%
@@ -318,15 +331,12 @@ BJsales.lead,BJsales,beaver2,beaver1,austres,%
 attitude,attenu,anscombe,airquality,AirPassengers,%
 airmiles,ability.cov%
 },%
-keywordstyle={[8]{\bf\color{RRecomdcolor}}}%
-}
+keywordstyle={[8]{\bf\color{RRecomdcolor}}},%
 %
-%
-
 % --------------------------
 % Registration of package methods [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[9]validSlotNames,validObject,unRematchDefinition,trySilent,tryNew,%
+morekeywords={[9]validSlotNames,validObject,unRematchDefinition,trySilent,tryNew,%
 traceOn,traceOff,testVirtual,testInheritedMethods,superClassDepth,%
 Summary,substituteFunctionArgs,substituteDirect,slotsFromS3,slotNames,%
 slot<-,slot,sigToEnv,SignatureMethod,signature,%
@@ -366,15 +376,12 @@ cacheMethod,cacheMetaData,cacheGenericsMetaData,body<-,balanceMethodsList,%
 assignMethodsMetaData,assignClassDef,asMethodDefinition,as<-,Arith,%
 allNames,allGenerics,addNextMethod%
 },%
-keywordstyle={[9]{\bf\color{RRecomdcolor}}}%
-}
+keywordstyle={[9]{\bf\color{RRecomdcolor}}},%
 %
-%
-
 % --------------------------
 % Registration of package base [recommended or base] 
 % --------------------------
-\lstdefinestyle{Rstyle}{morekeywords={[10]xtfrm.Surv,xtfrm.POSIXlt,xtfrm.POSIXct,xtfrm.numeric_version,xtfrm.factor,%
+morekeywords={[10]xtfrm.Surv,xtfrm.POSIXlt,xtfrm.POSIXct,xtfrm.numeric_version,xtfrm.factor,%
 xtfrm.default,xtfrm.Date,xtfrm,xpdrows.data.frame,writeLines,%
 writeChar,writeBin,write.table0,write.dcf,withVisible,%
 withRestarts,within.list,within.data.frame,within,withCallingHandlers,%
@@ -531,37 +538,180 @@ all.equal.language,all.equal.formula,all.equal.factor,all.equal.default,all.equa
 all.equal,agrep,addTaskCallback,addNA%
 },%
 keywordstyle={[10]{\bf\color{RRecomdcolor}}}%
-}
 %
-%
+}%
+\lstdefinestyle{Rstyle}{style=Rstyle2}
+\lstdefinestyle{RstyleO2}{style=Rstyle2}
 
 %------------------------------------------------------------------------------%
 %
 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% define new colors for use
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{darkred}{rgb}{0.6,0.0,0}
+\definecolor{lightbrown}{rgb}{1,0.9,0.8}
+\definecolor{brown}{rgb}{0.6,0.3,0.3}
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{darkmagenta}{rgb}{0.5,0,0.5}
+\definecolor{lightgrey}{rgb}{0.95,0.95,0.95}
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\affy}{{\tt affy}\xspace}
+
+\newcommand{\bld}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\shell}[1]{\mbox{$#1$}}
+\renewcommand{\vec}[1]{\mbox{\bf {#1}}}
+
+\newcommand{\ReallySmallSpacing}{\renewcommand{\baselinestretch}{.6}\Large\normalsize}
+\newcommand{\SmallSpacing}{\renewcommand{\baselinestretch}{1.1}\Large\normalsize}
+\newcommand{\halfs}{\frac{1}{2}}
+
+\setlength{\oddsidemargin}{-.25 truein}
+\setlength{\evensidemargin}{0truein}
+\setlength{\topmargin}{-0.2truein}
+\setlength{\textwidth}{7 truein}
+\setlength{\textheight}{8.5 truein}
+\setlength{\parindent}{0.20truein}
+\setlength{\parskip}{0.10truein}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\rfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{A Test}
+\author{Max Kuhn \\ max.kuhn@pfizer.com}
+
 
 \begin{document}
 
+\maketitle
+\lstdefinestyle{Rstyle11}{style=RstyleO2,%
+% --------------------------
+% Registration of package caret
+% --------------------------
+morekeywords={[11]xyplot.rfe,varImp.bagEarth,varImp,treebagFuncs,trainControl,%
+train.formula,train.default,train,tolerance,summary.bagFDA,%
+summary.bagEarth,sumDiss,stripplot.rfe,splsda.default,splsda,%
+specificity.table,specificity.default,specificity,spatialSign.matrix,spatialSign.default,%
+spatialSign.data.frame,spatialSign,sortImp,sensitivity.table,sensitivity.default,%
+sensitivity,roc,rfFuncs,rfeIter,rfeControl,%
+rfe.default,rfe,resampleWrapper,resampleSummary,resampleHist,%
+processData,print.train,preProcess.default,preProcess,predictors,%
+predict.train,predict.splsda,predict.preProcess,predict.plsda,predict.pcaNNet,%
+predict.list,predict.knnreg,predict.knn3,predict.classDist,predict.bagFDA,%
+predict.bagEarth,postResample,posPredValue.table,posPredValue.default,posPredValue,%
+plsda.default,plsda,plotObsVsPred,plotClassProbs,plot.train,%
+pickVars,pickSizeTolerance,pickSizeBest,pcaNNet.default,pcaNNet,%
+panel.needle,oneSE,normalize2Reference,normalize.AffyBatch.normalize2Reference,negPredValue.table,%
+negPredValue.default,negPredValue,nearZeroVar,nbFuncs,minDiss,%
+maxDissim,lmFuncs,ldaFuncs,knnregTrain,knnreg.matrix,%
+knnreg.default,knnreg.data.frame,knnreg,knn3Train,knn3.matrix,%
+knn3.formula,knn3,histogram.rfe,generateExprVal.method.trimMean,findLinearCombos,%
+findCorrelation,filterVarImp,featurePlot,extractProb,extractPrediction,%
+dotPlot,densityplot.train,densityplot.rfe,defaultSummary,createResample,%
+createModel,createGrid,createFolds,createDataPartition,confusionMatrix,%
+classDist.default,classDist,caretTheme,caretFuncs,best,%
+bagFDA.formula,bagFDA.default,bagFDA,bagEarth.formula,bagEarth.default,%
+bagEarth,aucRoc,applyProcessing%
+},%
+keywordstyle={[11]\sffamily\bf\color{red}\LARGE},%
+%
+% --------------------------
+% Registration of package lattice [recommended or base] 
+% --------------------------
+morekeywords={[12]yscale.components.default,xyplot,xscale.components.default,wireframe,which.packet,%
+trellis.vpname,trellis.unfocus,trellis.switchFocus,trellis.par.set,trellis.par.get,%
+trellis.panelArgs,trellis.last.object,trellis.grobname,trellis.focus,trellis.device,%
+trellis.currentLayout,tmd,strip.default,strip.custom,standard.theme,%
+splom,singer,simpleTheme,simpleKey,show.settings,%
+shingle,Rows,rfs,qqmath,qq,%
+prepanel.tmd.qqmath,prepanel.tmd.default,prepanel.qqmathline,prepanel.loess,prepanel.lmline,%
+prepanel.default.xyplot,prepanel.default.splom,prepanel.default.qqmath,prepanel.default.qq,prepanel.default.parallel,%
+prepanel.default.levelplot,prepanel.default.histogram,prepanel.default.densityplot,prepanel.default.cloud,prepanel.default.bwplot,%
+parallel,panel.xyplot,panel.wireframe,panel.violin,panel.tmd.qqmath,%
+panel.tmd.default,panel.text,panel.superpose.2,panel.superpose,panel.stripplot,%
+panel.splom,panel.smoothScatter,panel.segments,panel.rug,panel.refline,%
+panel.rect,panel.qqmathline,panel.qqmath,panel.qq,panel.polygon,%
+panel.points,panel.parallel,panel.pairs,panel.number,panel.mathdensity,%
+panel.loess,panel.lmline,panel.link.splom,panel.lines,panel.linejoin,%
+panel.levelplot,panel.identify.qqmath,panel.identify.cloud,panel.identify,panel.histogram,%
+panel.grid,panel.fill,panel.error,panel.dotplot,panel.densityplot,%
+panel.curve,panel.contourplot,panel.cloud,panel.bwplot,panel.brush.splom,%
+panel.barchart,panel.axis,panel.average,panel.arrows,panel.abline,%
+panel.3dwire,panel.3dscatter,packet.panel.default,packet.number,oneway,%
+melanoma,make.groups,ltransform3dto3d,ltransform3dMatrix,ltext,%
+lsegments,lrect,lpolygon,lpoints,lplot.xy,%
+llines,levelplot,level.colors,latticeParseFormula,lattice.options,%
+lattice.getOption,larrows,is.shingle,histogram,ethanol,%
+equal.count,environmental,draw.key,draw.colorkey,do.breaks,%
+diag.panel.splom,densityplot,current.row,current.panel.limits,current.column,%
+contourplot,col.whitebg,cloud,canonical.theme,bwplot,%
+barley,barchart,banking,axis.default,as.shingle,%
+as.factorOrShingle%
+},%
+keywordstyle={[12]{\bf\color{RRecomdcolor}}}%
+%
+}%
+\lstdefinestyle{Rstyle}{style=Rstyle11}
+\lstdefinestyle{RstyleO3}{style=Rstyle11}
 
-\begin{frame}[fragile]
-\frametitle{Your title}
+\begin{Schunk}
+\begin{Sinput}
+> ## from ?confusionMatrix
+> lvs <- c("normal", "abnormal")
+> truth <- factor(rep(lvs, times = c(86, 258)),
++                 levels = rev(lvs))
+> pred <- factor(
++                c(
++                  rep(lvs, times = c(54, 32)),
++                  rep(lvs, times = c(27, 231))),
++                levels = rev(lvs))
+> xtab <- table(pred, truth)
+> confusionMatrix(xtab)
+\end{Sinput}
+\begin{Soutput}
+Confusion Matrix and Statistics
 
-\begin{lstlisting}options(digits=3)
-set.seed(1)
-
-require(Hmisc)
-
-age <- rnorm(1000,50,10)
-sex <- sample(c('female','male'),1000,TRUE)
-out <- histbackback(split(age, sex), probability=TRUE, xlim=c(-.06,.06),
-                    main = 'Back to Back Histogram')
-
-#! just adding color
-barplot(-out$left, col="red" , horiz=TRUE, space=0, add=TRUE, axes=FALSE)
-barplot(out$right, col="blue", horiz=TRUE, space=0, add=TRUE, axes=FALSE)
-\end{lstlisting}
-\end{frame}
-
+          truth
+pred       abnormal normal
+  abnormal      231     32
+  normal         27     54
+                                        
+             Accuracy : 0.8285          
+               95% CI : (0.7844, 0.8668)
+  No Information Rate : 0.75            
+  P-Value [Acc > NIR] : 0.0003097       
+                                        
+                Kappa : 0.5336          
+                                        
+          Sensitivity : 0.8953          
+          Specificity : 0.6279          
+       Pos Pred Value : 0.8783          
+       Neg Pred Value : 0.6667          
+           Prevalence : 0.75            
+       Detection Rate : 0.6715          
+ Detection Prevalence : 0.7645          
+                                        
+     'Positive' Class : abnormal        
+\end{Soutput}
+\begin{Sinput}
+> ?NEWS
+> as.matrix(rnorm(3))
+\end{Sinput}
+\begin{Soutput}
+           [,1]
+[1,]  0.4859046
+[2,] -0.3303504
+[3,]  1.5984659
+\end{Soutput}
+\end{Schunk}
 
 \end{document}
-
-%%%%% end example

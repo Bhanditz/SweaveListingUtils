@@ -17,10 +17,10 @@
 \usepackage{svn-multi}
 % Version control information:
 \svnidlong
-{$HeadURL: svn+ssh://stamats@svn.r-forge.r-project.org/svnroot/distr/branches/distr-2.2/pkg/SweaveListingUtils/inst/doc/ExampleSweaveListingUtils.Rnw $}
-{$LastChangedDate: 2009-09-28 13:43:37 +0200 (Mo, 28. Sep 2009) $}
-{$LastChangedRevision: 591 $}
-{$LastChangedBy: ruckdeschel $}
+{$HeadURL: svn+ssh://ruckdeschel@svn.r-forge.r-project.org/svnroot/distr/pkg/SweaveListingUtils/inst/doc/ExampleSweaveListingUtils.Rnw $}
+{$LastChangedDate: 2009-11-01 11:10:10 +0100 (So, 01 Nov 2009) $}
+{$LastChangedRevision: 623 $}
+{$LastChangedBy: stamats $}
 %\svnid{$Id: example_main.tex 146 2008-12-03 13:29:19Z martin $}
 % Don't forget to set the svn property 'svn:keywords' to
 % 'HeadURL LastChangedDate LastChangedRevision LastChangedBy' or
@@ -497,9 +497,9 @@ Leisch, F  (2003)
 \newblock \hreft{http://cran.r-project.org/doc/Rnews/Rnews_2003-2.pdf}.
 %
 
-\bibitem[{Murdoch (2009)}]{Murd:08}
-Murdoch, D (2009)
-\newblock {Parsing Rd Files. Technical Report on {\tt developer.r-project.org}} as of Jun. 21 2009.
+\bibitem[{Murdoch (2010)}]{Murd:08}
+Murdoch, D (2010)
+\newblock {Parsing Rd Files. Technical Report on {\tt developer.r-project.org}} as of Jan. 1 2010.
 \newblock \hreft{http://developer.r-project.org/parseRd.pdf}.
 %
 
@@ -519,9 +519,10 @@ Ruckdeschel P, Kohl M, Stabla T, and Camphausen F (2006)
 %
 
 \end{thebibliography}
-<<cleanup, echo=FALSE>>=
-unloadNamespace("SweaveListingUtils")
-@
+%problem!
+%<<cleanup, echo=FALSE>>=
+%unloadNamespace("SweaveListingUtils")
+%@
 % -------------------------------------------------------------------------------
 \end{document}
 % -------------------------------------------------------------------------------

@@ -17,8 +17,8 @@
 \usepackage{svn-multi}
 % Version control information:
 \svnidlong
-{$HeadURL: svn+ssh://ruckdeschel@svn.r-forge.r-project.org/svnroot/distr/pkg/SweaveListingUtils/inst/doc/ExampleSweaveListingUtils.Rnw $}
-{$LastChangedDate: 2010-03-01 19:35:08 +0100 (Mo, 01 Mrz 2010) $}
+{$HeadURL: file:///srv/svn/distr/pkg/SweaveListingUtils/inst/doc/ExampleSweaveListingUtils.Rnw $}
+{$LastChangedDate: 2010-03-01 19:35:08 +0100 (Mon, 01 Mar 2010) $}
 {$LastChangedRevision: 642 $}
 {$LastChangedBy: ruckdeschel $}
 %\svnid{$Id: example_main.tex 146 2008-12-03 13:29:19Z martin $}

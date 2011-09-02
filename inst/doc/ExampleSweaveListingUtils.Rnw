@@ -17,9 +17,9 @@
 \usepackage{svn-multi}
 % Version control information:
 \svnidlong
-{$HeadURL: file:///srv/svn/distr/pkg/SweaveListingUtils/inst/doc/ExampleSweaveListingUtils.Rnw $}
-{$LastChangedDate: 2010-03-01 19:35:08 +0100 (Mon, 01 Mar 2010) $}
-{$LastChangedRevision: 642 $}
+{$HeadURL: svn+ssh://ruckdeschel@svn.r-forge.r-project.org/svnroot/distr/pkg/SweaveListingUtils/inst/doc/ExampleSweaveListingUtils.Rnw $}
+{$LastChangedDate: 2011-09-02 16:08:36 +0200 (Fr, 02 Sep 2011) $}
+{$LastChangedRevision: 730 $}
 {$LastChangedBy: ruckdeschel $}
 %\svnid{$Id: example_main.tex 146 2008-12-03 13:29:19Z martin $}
 % Don't forget to set the svn property 'svn:keywords' to
@@ -75,7 +75,7 @@ pagecolor=darkblue,raiselinks,plainpages,pdftex]{hyperref}
 %\usepackage{Sweave}
 \SweaveOpts{keep.source=TRUE}
 % -------------------------------------------------------------------------------
-<<SweaveListingsPreparations, results=tex, echo=FALSE, strip.white=FALSE>>=
+<<SweaveListingsPreparations, results=tex, echo=FALSE, strip.white=false>>=
 require(SweaveListingUtils)
 SweaveListingoptions(intermediate = FALSE)
 SweaveListingPreparations()
@@ -266,7 +266,7 @@ environment, so  we use
 %------------
 \lstinputlisting[style=TeXstyle]{reqdistr.tex}
 
-<<Prepa, echo=FALSE, results=tex, strip.white=FALSE>>=
+<<Prepa, echo=FALSE, results=tex, strip.white=false>>=
 require(distr)
 @
 
@@ -439,7 +439,7 @@ in package \pkg{distr}, we would use:
 % -------------------------------------------------------------------------------
 which returns
 
-<<AllClass1, echo=FALSE, results=tex, strip.white=FALSE>>=
+<<AllClass1, echo=FALSE, results=tex, strip.white=false>>=
 lstinputSourceFromRForge("distr","R","AllClasses.R","distr",
                      "## Class: BinomParameter", "#-")
 @
@@ -458,7 +458,7 @@ chunk:
 \lstinputlisting[style=TeXstyle]{BinomParam.tex}
 
 giving 
-<<BinomParam, results=tex, echo=FALSE, strip.white=FALSE>>=
+<<BinomParam, results=tex, echo=FALSE, strip.white=false>>=
 lstinputSourceFromRForge("distr","man","BinomParameter-class.Rd","distr")
 @
 

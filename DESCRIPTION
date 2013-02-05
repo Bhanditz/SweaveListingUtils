@@ -1,7 +1,7 @@
 Package: SweaveListingUtils
 Title: Utilities for Sweave together with TeX listings package
 Encoding: latin1
-Version: 0.5.5
+Version: 0.6
 Depends: R(>= 2.10.0), startupmsg
 Suggests: distr, MASS, survival, distrEx, Matrix, splines
 Imports: stats
@@ -14,11 +14,11 @@ Description: provides utilities for defining R / Rd as
         vignette and documented source code
 Maintainer: Peter Ruckdeschel <Peter.Ruckdeschel@itwm.fraunhofer.de>
 License: LGPL-3
-Date: 2012-02-06
-LastChangedDate: {$LastChangedDate: 2012-02-03 18:16:38 +0100 (Fr, 03
-        Feb 2012) $}
-LastChangedRevision: {$LastChangedRevision: 786 $}
-SVNRevision: 787
-Packaged: 2012-02-06 12:17:00 UTC; ruckdesc
+Date: 2013-02-05
+LastChangedDate: {$LastChangedDate: 2013-02-05 01:01:14 +0100 (Di, 05
+        Feb 2013) $}
+LastChangedRevision: {$LastChangedRevision: 875 $}
+SVNRevision: 834
+Packaged: 2013-02-05 16:23:36 UTC; ruckdesc
 Repository: CRAN
-Date/Publication: 2012-02-06 12:33:44
+Date/Publication: 2013-02-07 19:32:12

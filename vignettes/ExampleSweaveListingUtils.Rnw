@@ -17,9 +17,9 @@
 \usepackage{svn-multi}
 % Version control information:
 \svnidlong
-{$HeadURL: svn+ssh://ruckdeschel@svn.r-forge.r-project.org/svnroot/distr/pkg/SweaveListingUtils/vignettes/ExampleSweaveListingUtils.Rnw $}
-{$LastChangedDate: 2011-11-18 13:52:03 +0100 (Fr, 18 Nov 2011) $}
-{$LastChangedRevision: 770 $}
+{$HeadURL: svn+ssh://ruckdeschel@svn.r-forge.r-project.org/svnroot/distr/branches/distr-2.4/pkg/SweaveListingUtils/vignettes/ExampleSweaveListingUtils.Rnw $}
+{$LastChangedDate: 2011-11-18 13:53:00 +0100 (Fr, 18 Nov 2011) $}
+{$LastChangedRevision: 771 $}
 {$LastChangedBy: ruckdeschel $}
 %\svnid{$Id: example_main.tex 146 2008-12-03 13:29:19Z martin $}
 % Don't forget to set the svn property 'svn:keywords' to

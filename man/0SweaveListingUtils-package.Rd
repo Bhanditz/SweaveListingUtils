@@ -15,12 +15,14 @@ thereby avoiding inconsistencies between vignette and documented source code
 \details{
 \tabular{ll}{
 Package: \tab SweaveListingUtils \cr
-Version: \tab 0.7 \cr
-Date: \tab 2013-09-12 \cr
+Version: \tab 0.7.5 \cr
+Date: \tab 2016-04-25 \cr
 Depends: \tab R(>= 2.14.0), startupmsg \cr
+Suggests: \tab distr, MASS, survival, distrEx, Matrix, splines \cr
+Imports: \tab methods \cr
 LazyLoad: \tab yes \cr
 License: \tab LGPL-3 \cr
-SVNRevision: \tab 913 \cr
+SVNRevision: \tab 1110 \cr
 }
 
 TeX-package \file{listings}, confer \url{http://www.ctan.org/tex-archive/macros/latex/contrib/listings/},
@@ -132,8 +134,8 @@ be found in the \file{doc} folder of this package.
 }
 
 \author{
-Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de}\cr
-\emph{Maintainer:} Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de}
+Peter Ruckdeschel \email{peter.ruckdeschel@uni-oldenburg.de}\cr
+\emph{Maintainer:} Peter Ruckdeschel \email{peter.ruckdeschel@uni-oldenburg.de}
 }
 \note{This version already uses 'new-style' Rd-format version 1.1.
 For versions installable for \eqn{<}\R-2.10.0, try and get a version

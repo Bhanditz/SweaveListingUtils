@@ -59,16 +59,18 @@ changeKeywordstyles(pkgs = "distr",
 %
 \seealso{\code{\link{lstsetLanguage}}}
 %
-\author{Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de}}
+\author{Peter Ruckdeschel \email{peter.ruckdeschel@uni-oldenburg.de}}
 %
 \examples{
 require(MASS)
+\donttest{
 lstsetLanguage(pkgs = c("MASS","stats"),
                keywordstyles  = paste("\\\\bfseries\\\\color{",c("blue","red"),"}",
                          sep="", collapse=""))
 changeKeywordstyles(pkgs = c("distr","distrEx"),
                     keywordstyles = paste("\\\\bfseries\\\\color{",c("green","blue"),"}",
                     collapse="", sep = ""))
+}
 }
 %
 \keyword{utilities}

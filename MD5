@@ -1,4 +1,4 @@
-07b79bc2ded833e632e459e9bc9f0bf8 *DESCRIPTION
+494025bf5185932e20f0705c8aa0b6f8 *DESCRIPTION
 729f51933144b2b0823bea38854246c0 *NAMESPACE
 4b8a5000a5c7821bb8281cab8cdb8287 *R/SweaveListingOptions.R
 76fe250e9778324fa15ce483a8e0de87 *R/SweaveListingUtils.R
@@ -12,8 +12,8 @@ c46ca8dd8ab838fa21484d774dbcc412 *build/vignette.rds
 ded519d6742c76727ac00957758a98ff *inst/TOBEDONE
 372f376640519581e0d8614ce6dd1fe6 *inst/TeX/Rdlisting.sty
 d6305a5218f5aaf26bd2c34a3aeef3e2 *inst/doc/ExampleSweaveListingUtils.R
-c0fb8a0fde2d32c45c83b886d5140477 *inst/doc/ExampleSweaveListingUtils.Rnw
-3486b0c98499960bd850588117b60d7f *inst/doc/ExampleSweaveListingUtils.pdf
+1601672612c3914d0ac623281631b6ac *inst/doc/ExampleSweaveListingUtils.Rnw
+1b98b1316684ff532db24e4c76a71d09 *inst/doc/ExampleSweaveListingUtils.pdf
 30002475f17985f6891a4234c2b3fb79 *inst/try/algorithm2e.sty
 e5d13d98d57bd53d4fed3aa61bd29c86 *inst/try/fancyhdr.sty
 ef6d19c9d8225ecc146ba4be3546a554 *inst/try/lastpage.sty
@@ -26,7 +26,7 @@ ef6d19c9d8225ecc146ba4be3546a554 *inst/try/lastpage.sty
 dd31ac39185c47e4fe9bf2d46f2b5876 *inst/try/try_Hausman.Rnw
 54cc62bf3dd4effa1fff4d078bcd32c1 *inst/try/try_Hausman.tex
 dd31ac39185c47e4fe9bf2d46f2b5876 *inst/try/try_Hausmann.Rnw
-ffcc1432c0b364812db425c5b6876763 *man/0SweaveListingUtils-package.Rd
+474382ac53c32f3d9c0feef2bd9455ab *man/0SweaveListingUtils-package.Rd
 cb898a090c22bdd8b2379bba07b8ab12 *man/SweaveListingMASK.Rd
 b8f9759a2a3d1e6b6d35821f0a283499 *man/SweaveListingOptions.Rd
 3dbd508b13bfad8096e1b91696978628 *man/SweaveListingPreparations.Rd
@@ -42,10 +42,10 @@ a2dda77cfc4d8fc9315ddb02dc459cb5 *man/lstset.Rd
 cdaf203e66dd519108d759657423e2e5 *man/setBaseOrRecommended.Rd
 e6c79b9eda9dc504cf3856785e725b2d *man/setToBeDefinedPkgs.Rd
 d69b4cf4083588cbfff7c5251eba5572 *man/taglist.Rd
-ca724c4498af0c9ab9c1c18007f189f0 *tests/Examples/SweaveListingUtils-Ex.Rout.save
+a4c6b7097ceec917d5bada7314deb923 *tests/Examples/SweaveListingUtils-Ex.Rout
 a869d40e7f18b43c1333d6303e034b00 *vignettes/AllClass.tex
 8b84c0b7089896df0d7d2d2ec7ce049b *vignettes/BinomParam.tex
-c0fb8a0fde2d32c45c83b886d5140477 *vignettes/ExampleSweaveListingUtils.Rnw
+1601672612c3914d0ac623281631b6ac *vignettes/ExampleSweaveListingUtils.Rnw
 d8effe6da1285b6cdace1d9cf3ecaec0 *vignettes/altPrep.tex
 f9244e895d9c5d60fa55d864aac7dcac *vignettes/cleanup.tex
 0b0311feb0a0a169d1d7c2b40ed08c19 *vignettes/exam00.tex
